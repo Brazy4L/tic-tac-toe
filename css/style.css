@@ -4,6 +4,7 @@ body {
 
 #gameboard-wrapper {
     height: 100vh;
+    min-width: 320px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,9 +14,15 @@ body {
     display: grid;
     border: 10px solid black;
     grid-template: repeat(3, 100px) / repeat(3, 100px);
-    font-size: 48px;   
+    font-size: 48px;
+    font-weight: 900;
 }
 
 .square {
-    place-self: center;
+    display: flex;
+    width: 100px;
+    height: 100px;
+    justify-content: center;
+    align-items: center;
+    cursor: default;
 }
