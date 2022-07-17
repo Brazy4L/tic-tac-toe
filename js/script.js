@@ -44,6 +44,8 @@ const Game = (() => {
             console.log('Player 1 is the winner!');
         } else if (one === '⭘' && two === '⭘' && three === '⭘' || four === '⭘' && five === '⭘' && six === '⭘' || seven === '⭘' && eight === '⭘' && nine === '⭘' || one === '⭘' && four === '⭘' && seven === '⭘' || two === '⭘' && five === '⭘' && eight === '⭘' || three === '⭘' && six === '⭘' && nine === '⭘' || one === '⭘' && five === '⭘' && nine === '⭘' || three === '⭘' && five === '⭘' && seven === '⭘') {
             console.log('Player 2 is the winner!');
+        } else if (one !== '' && two !== '' && three !== '' && four !== '' && five !== '' && six !== '' && seven !== '' && eight !== '' && nine !== '') {
+            console.log('Tie!');
         }
     }
 
