@@ -12,7 +12,6 @@ body {
 
 #gameboard {
     display: grid;
-    border: 10px solid black;
     grid-template: repeat(3, 100px) / repeat(3, 100px);
     font-size: 48px;
     font-weight: 900;
@@ -25,4 +24,19 @@ body {
     justify-content: center;
     align-items: center;
     cursor: default;
+    box-sizing: border-box;
+}
+
+#two, #eight {
+    border-right: 5px solid black;
+    border-left: 5px solid black;
+}
+
+#four, #six {
+    border-top: 5px solid black;
+    border-bottom: 5px solid black;
+}
+
+#five {
+    border: 5px solid black;
 }
