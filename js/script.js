@@ -1,3 +1,5 @@
+// ◯
+
 const Game = (() => {
     const play = () => {
         for (let i = 0; i < 9; i++) {
@@ -23,10 +25,10 @@ const Game = (() => {
 
     const flow = () => {
         if (lastMove === '✕') {
-            move = '⭘';
-            lastMove = '⭘';
+            move = '◯';
+            lastMove = '◯';
             return move;
-        } else if (lastMove === '⭘') {
+        } else if (lastMove === '◯') {
             move = '✕';
             lastMove = '✕';
             return move;
@@ -58,15 +60,15 @@ const Game = (() => {
             numberLeft = +document.getElementById('score-x').innerText + 1;
             document.getElementById('score-x').innerText = numberLeft;
             borderOff();
-        } else if (one === '⭘' && two === '⭘' && three === '⭘' || four === '⭘' && five === '⭘' && six === '⭘' || seven === '⭘' && eight === '⭘' && nine === '⭘' || one === '⭘' && four === '⭘' && seven === '⭘' || two === '⭘' && five === '⭘' && eight === '⭘' || three === '⭘' && six === '⭘' && nine === '⭘' || one === '⭘' && five === '⭘' && nine === '⭘' || three === '⭘' && five === '⭘' && seven === '⭘') {
+        } else if (one === '◯' && two === '◯' && three === '◯' || four === '◯' && five === '◯' && six === '◯' || seven === '◯' && eight === '◯' && nine === '◯' || one === '◯' && four === '◯' && seven === '◯' || two === '◯' && five === '◯' && eight === '◯' || three === '◯' && six === '◯' && nine === '◯' || one === '◯' && five === '◯' && nine === '◯' || three === '◯' && five === '◯' && seven === '◯') {
             gameboard.classList.add('hide');
-            winner.innerHTML = '<strong>⭘</strong>&nbsp;WINNER!';
+            winner.innerHTML = '<strong>◯</strong>&nbsp;WINNER!';
             numberRight = +document.getElementById('score-o').innerText + 1;
             document.getElementById('score-o').innerText = numberRight;
             borderOff();
         } else if (one !== '' && two !== '' && three !== '' && four !== '' && five !== '' && six !== '' && seven !== '' && eight !== '' && nine !== '') {
             gameboard.classList.add('hide');
-            winner.innerHTML = '<strong>✕⭘</strong>&nbsp;DRAW!';
+            winner.innerHTML = '<strong>✕◯</strong>&nbsp;DRAW!';
             borderOff();
         }
     }

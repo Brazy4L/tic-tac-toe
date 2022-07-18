@@ -49,6 +49,7 @@ body {
     align-items: center;
     cursor: pointer;
     box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
 }
 
 #two, #eight {
@@ -83,6 +84,7 @@ body {
     font-family: inherit;
     font-size: 24px;
     transition: transform ease-in 0.1s;
+    -webkit-tap-highlight-color: transparent;
 }
 
 #restart:hover {
@@ -93,6 +95,10 @@ body {
 #restart:active {
     transform: skewy(3deg);
     transition: transform ease-in 0.05s;
+}
+
+#restart:focus {
+
 }
 
 #score {
