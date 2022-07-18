@@ -77,6 +77,22 @@ body {
     width: 300px;
     height: 100px;
     cursor: pointer;
+    background-color: #ff00c86c;
+    border-radius: 50px;
+    border: none;
+    font-family: inherit;
+    font-size: 24px;
+    transition: transform ease-in 0.1s;
+}
+
+#restart:hover {
+    background-color: #ff00c883;
+    transform: skewy(-3deg);
+}
+
+#restart:active {
+    transform: skewy(3deg);
+    transition: transform ease-in 0.05s;
 }
 
 #score {
@@ -103,7 +119,7 @@ body {
     grid-template: 1fr / 1fr 1fr;
     align-items: center;
     padding: 0 30px;
-    background-color: #ffc0cb;
+    background-color: #ff00c86c;
     border-radius: 50px;
 }
 
