@@ -39,6 +39,18 @@ body {
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    display: grid;
+    grid-template: 1fr 1fr / 1fr;
+}
+
+#winner > :nth-child(1) {
+    justify-self: center;
+    align-self: end;
+}
+
+#winner > :nth-child(2) {
+    justify-self: center;
+    align-self: start;
 }
 
 .square {
@@ -95,10 +107,6 @@ body {
 #restart:active {
     transform: skewy(3deg);
     transition: transform ease-in 0.05s;
-}
-
-#restart:focus {
-
 }
 
 #score {
