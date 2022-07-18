@@ -9,6 +9,10 @@ const Game = (() => {
                 check();
             })
         }
+        let reset = document.getElementById('restart');
+        reset.addEventListener('click', () => {
+            restart();
+        })
     }
     
     let lastMove = '';
@@ -49,8 +53,20 @@ const Game = (() => {
         }
     }
 
+    const restart = () => {
+        document.getElementById('one').innerText = '';
+        document.getElementById('two').innerText = '';
+        document.getElementById('three').innerText = '';
+        document.getElementById('four').innerText = '';
+        document.getElementById('five').innerText = '';
+        document.getElementById('six').innerText = '';
+        document.getElementById('seven').innerText = '';
+        document.getElementById('eight').innerText = '';
+        document.getElementById('nine').innerText = '';
+    }
+
     return {
-        play
+        play,
     }
 })();
 

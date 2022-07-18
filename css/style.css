@@ -6,8 +6,8 @@ body {
     height: 100vh;
     min-width: 320px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
 }
 
 #gameboard {
@@ -15,6 +15,9 @@ body {
     grid-template: repeat(3, 100px) / repeat(3, 100px);
     font-size: 48px;
     font-weight: 900;
+    flex-basis: 100%;
+    justify-content: center;
+    align-self: flex-end;
 }
 
 .square {
@@ -28,15 +31,27 @@ body {
 }
 
 #two, #eight {
+    transition: ease-out 0.15s;
     border-right: 5px solid black;
     border-left: 5px solid black;
 }
 
 #four, #six {
+    transition: ease-out 0.15s;
     border-top: 5px solid black;
     border-bottom: 5px solid black;
 }
 
 #five {
+    transition: ease-out 0.15s;
     border: 5px solid black;
+}
+
+#restart {
+    width: 300px;
+    height: 100px;
+}
+
+#restart-wrapper {
+    padding-top: 100px;
 }
