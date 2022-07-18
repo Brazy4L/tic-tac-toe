@@ -41,6 +41,7 @@ body {
     cursor: pointer;
     display: grid;
     grid-template: 1fr 1fr / 1fr;
+    -webkit-tap-highlight-color: transparent;
 }
 
 #winner > :nth-child(1) {
