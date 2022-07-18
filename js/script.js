@@ -57,14 +57,17 @@ const Game = (() => {
             winner.innerHTML = '<strong>✕</strong>&nbsp;WINNER!';
             numberLeft = +document.getElementById('score-x').innerText + 1;
             document.getElementById('score-x').innerText = numberLeft;
+            borderOff();
         } else if (one === '⭘' && two === '⭘' && three === '⭘' || four === '⭘' && five === '⭘' && six === '⭘' || seven === '⭘' && eight === '⭘' && nine === '⭘' || one === '⭘' && four === '⭘' && seven === '⭘' || two === '⭘' && five === '⭘' && eight === '⭘' || three === '⭘' && six === '⭘' && nine === '⭘' || one === '⭘' && five === '⭘' && nine === '⭘' || three === '⭘' && five === '⭘' && seven === '⭘') {
             gameboard.classList.add('hide');
             winner.innerHTML = '<strong>⭘</strong>&nbsp;WINNER!';
             numberRight = +document.getElementById('score-o').innerText + 1;
             document.getElementById('score-o').innerText = numberRight;
+            borderOff();
         } else if (one !== '' && two !== '' && three !== '' && four !== '' && five !== '' && six !== '' && seven !== '' && eight !== '' && nine !== '') {
             gameboard.classList.add('hide');
             winner.innerHTML = '<strong>✕⭘</strong>&nbsp;DRAW!';
+            borderOff();
         }
     }
 
@@ -75,6 +78,23 @@ const Game = (() => {
         lastMove = '';
         winner.innerHTML = '';
         gameboard.classList.remove('hide');
+        borderOn();
+    }
+
+    const borderOff = () => {
+        document.querySelector('.square#two').style = 'border: none';
+        document.querySelector('.square#four').style = 'border: none';
+        document.querySelector('.square#five').style = 'border: none';
+        document.querySelector('.square#six').style = 'border: none';
+        document.querySelector('.square#eight').style = 'border: none';
+    }
+
+    const borderOn = () => {
+        document.querySelector('.square#two').style = 'border-right: 5px solid black; border-left: 5px solid black;';
+        document.querySelector('.square#four').style = 'border-top: 5px solid black; border-bottom: 5px solid black;';
+        document.querySelector('.square#five').style = 'border: 5px solid black;';
+        document.querySelector('.square#six').style = 'border-top: 5px solid black; border-bottom: 5px solid black;';
+        document.querySelector('.square#eight').style = 'border-right: 5px solid black; border-left: 5px solid black;';
     }
 
     return {
