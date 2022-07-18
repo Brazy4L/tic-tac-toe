@@ -13,6 +13,9 @@ const Game = (() => {
         reset.addEventListener('click', () => {
             restart();
         })
+        winner.addEventListener('click', () => {
+            restart();
+        })
     }
     
     let lastMove = '';
@@ -34,6 +37,9 @@ const Game = (() => {
         }
     }
 
+    let winner = document.getElementById('winner');
+    let gameboard = document.getElementById('gameboard');
+
     const check = () => {
         let one = document.getElementById('one').innerText;
         let two = document.getElementById('two').innerText;
@@ -44,25 +50,31 @@ const Game = (() => {
         let seven = document.getElementById('seven').innerText;
         let eight = document.getElementById('eight').innerText;
         let nine = document.getElementById('nine').innerText;
+        let numberLeft = '';
+        let numberRight = '';
         if (one === '✕' && two === '✕' && three === '✕' || four === '✕' && five === '✕' && six === '✕' || seven === '✕' && eight === '✕' && nine === '✕' || one === '✕' && four === '✕' && seven === '✕' || two === '✕' && five === '✕' && eight === '✕' || three === '✕' && six === '✕' && nine === '✕' || one === '✕' && five === '✕' && nine === '✕' || three === '✕' && five === '✕' && seven === '✕') {
-            console.log('Player 1 is the winner!');
+            gameboard.classList.add('hide');
+            winner.innerHTML = '<strong>✕</strong>&nbsp;WINNER!';
+            numberLeft = +document.getElementById('score-x').innerText + 1;
+            document.getElementById('score-x').innerText = numberLeft;
         } else if (one === '⭘' && two === '⭘' && three === '⭘' || four === '⭘' && five === '⭘' && six === '⭘' || seven === '⭘' && eight === '⭘' && nine === '⭘' || one === '⭘' && four === '⭘' && seven === '⭘' || two === '⭘' && five === '⭘' && eight === '⭘' || three === '⭘' && six === '⭘' && nine === '⭘' || one === '⭘' && five === '⭘' && nine === '⭘' || three === '⭘' && five === '⭘' && seven === '⭘') {
-            console.log('Player 2 is the winner!');
+            gameboard.classList.add('hide');
+            winner.innerHTML = '<strong>⭘</strong>&nbsp;WINNER!';
+            numberRight = +document.getElementById('score-o').innerText + 1;
+            document.getElementById('score-o').innerText = numberRight;
         } else if (one !== '' && two !== '' && three !== '' && four !== '' && five !== '' && six !== '' && seven !== '' && eight !== '' && nine !== '') {
-            console.log('Tie!');
+            gameboard.classList.add('hide');
+            winner.innerHTML = '<strong>✕⭘</strong>&nbsp;DRAW!';
         }
     }
 
     const restart = () => {
-        document.getElementById('one').innerText = '';
-        document.getElementById('two').innerText = '';
-        document.getElementById('three').innerText = '';
-        document.getElementById('four').innerText = '';
-        document.getElementById('five').innerText = '';
-        document.getElementById('six').innerText = '';
-        document.getElementById('seven').innerText = '';
-        document.getElementById('eight').innerText = '';
-        document.getElementById('nine').innerText = '';
+        for (let i = 0; i < 9; i++) {
+            document.querySelectorAll('.square')[i].innerText = '';
+        }
+        lastMove = '';
+        winner.innerHTML = '';
+        gameboard.classList.remove('hide');
     }
 
     return {
