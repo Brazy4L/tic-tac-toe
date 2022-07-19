@@ -100,23 +100,27 @@ const Game = (() => {
     }
 
     const borderOff = () => {
+        document.querySelector('.square#one').style = '';
         document.querySelector('.square#two').style = 'border: none';
+        document.querySelector('.square#three').style = '';
         document.querySelector('.square#four').style = 'border: none';
         document.querySelector('.square#five').style = 'border: none';
         document.querySelector('.square#six').style = 'border: none';
-        document.querySelector('.square#eight').style = 'border: none';
-        document.querySelector('.square#one').style = '';
-        document.querySelector('.square#three').style = '';
         document.querySelector('.square#seven').style = '';
+        document.querySelector('.square#eight').style = 'border: none';
         document.querySelector('.square#nine').style = '';
     }
 
     const borderOn = () => {
+        document.querySelector('.square#one').style = '';
         document.querySelector('.square#two').style = '';
+        document.querySelector('.square#three').style = '';
         document.querySelector('.square#four').style = '';
         document.querySelector('.square#five').style = '';
         document.querySelector('.square#six').style = '';
+        document.querySelector('.square#seven').style = '';
         document.querySelector('.square#eight').style = '';
+        document.querySelector('.square#nine').style = '';
     }
 
     return {
