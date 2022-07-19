@@ -1,4 +1,9 @@
-const Game = (() => {
+const Game = (() => {  
+    let lastMove = '';
+    let move = '';
+    const winner = document.getElementById('winner');
+    const gameboard = document.getElementById('gameboard');
+
     const on = () => {
         play();
     }
@@ -14,7 +19,7 @@ const Game = (() => {
                 check();
             })
         }
-        let reset = document.getElementById('restart');
+        const reset = document.getElementById('restart');
         reset.addEventListener('click', () => {
             restart();
         })
@@ -22,9 +27,6 @@ const Game = (() => {
             restart();
         })
     }
-    
-    let lastMove = '';
-    let move = '';
 
     const flow = () => {
         if (lastMove === '✕') {
@@ -42,51 +44,42 @@ const Game = (() => {
         }
     }
 
-    let winner = document.getElementById('winner');
-    let gameboard = document.getElementById('gameboard');
-
     const check = () => {
-        let one = document.getElementById('one').innerText;
-        let two = document.getElementById('two').innerText;
-        let three = document.getElementById('three').innerText;
-        let four = document.getElementById('four').innerText;
-        let five = document.getElementById('five').innerText;
-        let six = document.getElementById('six').innerText;
-        let seven = document.getElementById('seven').innerText;
-        let eight = document.getElementById('eight').innerText;
-        let nine = document.getElementById('nine').innerText;
-        let numberLeft = '';
-        let numberRight = '';
+        const one = document.getElementById('one').innerText;
+        const two = document.getElementById('two').innerText;
+        const three = document.getElementById('three').innerText;
+        const four = document.getElementById('four').innerText;
+        const five = document.getElementById('five').innerText;
+        const six = document.getElementById('six').innerText;
+        const seven = document.getElementById('seven').innerText;
+        const eight = document.getElementById('eight').innerText;
+        const nine = document.getElementById('nine').innerText;
+        const numberLeft = '';
+        const numberRight = '';
         if (one === '✕' && two === '✕' && three === '✕' || four === '✕' && five === '✕' && six === '✕' || seven === '✕' && eight === '✕' && nine === '✕' || one === '✕' && four === '✕' && seven === '✕' || two === '✕' && five === '✕' && eight === '✕' || three === '✕' && six === '✕' && nine === '✕' || one === '✕' && five === '✕' && nine === '✕' || three === '✕' && five === '✕' && seven === '✕') {
-            gameboard.classList.add('hide');
-            winner.innerHTML = '<div><strong>✕</strong></div><div>WINNER!</div>';
-            winner.style = 'font-size: 48px';
-            numberLeft = +document.getElementById('score-x-top').innerText + 1;
-            document.getElementById('score-x-top').innerText = numberLeft;
-            document.getElementById('score-x-top').style = 'animation: mb 0.35s linear;'
-            document.getElementById('score-x').style = 'animation: mt 0.25s ease-out 0.10s;'
-            setTimeout(() => {
-                document.getElementById('score-x').innerText = numberLeft;
-            }, 335); 
-            borderOff();
+            score('✕', numberLeft, 'score-x-top', 'score-x');
         } else if (one === '◯' && two === '◯' && three === '◯' || four === '◯' && five === '◯' && six === '◯' || seven === '◯' && eight === '◯' && nine === '◯' || one === '◯' && four === '◯' && seven === '◯' || two === '◯' && five === '◯' && eight === '◯' || three === '◯' && six === '◯' && nine === '◯' || one === '◯' && five === '◯' && nine === '◯' || three === '◯' && five === '◯' && seven === '◯') {
-            gameboard.classList.add('hide');
-            winner.innerHTML = '<div><strong>◯</strong></div><div>WINNER!</div>';
-            winner.style = 'font-size: 48px';
-            numberRight = +document.getElementById('score-o-top').innerText + 1;
-            document.getElementById('score-o-top').innerText = numberRight;
-            document.getElementById('score-o-top').style = 'animation: mb 0.35s linear;'
-            document.getElementById('score-o').style = 'animation: mt 0.25s ease-out 0.10s;'
-            setTimeout(() => {
-                document.getElementById('score-o').innerText = numberRight;
-            }, 335); 
-            borderOff();
+            score('◯', numberRight, 'score-o-top', 'score-o');
         } else if (one !== '' && two !== '' && three !== '' && four !== '' && five !== '' && six !== '' && seven !== '' && eight !== '' && nine !== '') {
             gameboard.classList.add('hide');
             winner.innerHTML = '<div><strong>✕◯</strong></div><div>DRAW!</div>';
             winner.style = 'font-size: 48px';
             borderOff();
         }
+    }
+
+    const score = (symbol, number, top, bottom) => {
+        gameboard.classList.add('hide');
+        winner.innerHTML = `<div><strong>${symbol}</strong></div><div>WINNER!</div>`;
+        winner.style = 'font-size: 48px';
+        number = +document.getElementById(top).innerText + 1;
+        document.getElementById(top).innerText = number;
+        document.getElementById(top).style = 'animation: mb 0.35s linear;';
+        document.getElementById(bottom).style = 'animation: mt 0.25s ease-out 0.10s;';
+        setTimeout(() => {
+            document.getElementById(bottom).innerText = number;
+        }, 335); 
+        borderOff();
     }
 
     const restart = () => {
@@ -98,10 +91,10 @@ const Game = (() => {
         winner.style = '';
         gameboard.classList.remove('hide');
         setTimeout(() => {
-            document.getElementById('score-x-top').style = ''
-            document.getElementById('score-x').style = ''
-            document.getElementById('score-o-top').style = ''
-            document.getElementById('score-o').style = ''
+            document.getElementById('score-x-top').style = '';
+            document.getElementById('score-x').style = '';
+            document.getElementById('score-o-top').style = '';
+            document.getElementById('score-o').style = '';
         }, 400); 
         borderOn();
     }
