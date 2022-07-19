@@ -16,7 +16,9 @@ const Game = (() => {
                     play.innerText = flow();
                     play.style = 'font-size: 65px;';
                 }
-                check();
+                setTimeout(() => {
+                    check();
+                }, 205); 
             })
         }
         const reset = document.getElementById('restart');
